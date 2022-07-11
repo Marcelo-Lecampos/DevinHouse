@@ -1,0 +1,212 @@
+body {
+  background: linear-gradient(135deg, #fefcea 0%, #f1da36 100%);
+}
+
+/* <!-*********************** Seção Sobre Animações **********************-!>*/
+@keyframes moveDown {
+  /* Animação do Header */
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes clarear {
+  /* Animação do Main */
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveRight {
+  /* Animação do DeathStar */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveUp {
+  /* Animação do Footer */
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* <!-*********************** Seção Sobre Header **********************-!>*/
+.header--animation {
+  animation: moveDown 1s ease-out;
+}
+header nav {
+  height: 5vh;
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(197, 222, 234, 1) 0%,
+    rgba(138, 187, 215, 1) 44%,
+    rgba(6, 109, 171, 1) 100%
+  );
+}
+
+header nav img {
+  animation: moveRight 2s ease-out;
+  height: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-top: 0.3rem;
+  transition: all 4s ease-in;
+  cursor: crosshair;
+}
+
+
+header nav img:hover {
+  transform: rotate(360deg);
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 1.5rem;
+}
+
+.links a {
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+
+.links a:hover {
+  font-size: 1.1rem;
+  background-color: rgb(14, 231, 243);
+  padding: 1;
+}
+
+/* <!-*********************** Seção Sobre Main **********************-!>*/
+
+main {
+  height: 90vh;
+  overflow: auto;
+}
+
+.main--animation {
+  animation: clarear 2s ease-out;
+}
+
+.titulo {
+  font-family: Verdana;
+  font-size: 20px;
+  color: burlywood;
+  text-align: center;
+  background: center/100% no-repeat url(./imagem/h1.jpg);
+  text-shadow: 2px 2px 2px #ce5937;
+}
+
+span {
+  color: red;
+}
+
+.titulo + p {
+  font-size: 14px;
+  text-align: center;
+}
+
+button {
+  border-radius: 50%;
+  padding: 10px;
+  border: 2px solid black;
+  margin-top: 20px;
+  position: relative;
+  left: 50%;
+  z-index: 0;
+  transform: translateX(-50%);
+}
+
+button:hover {
+  transform: translate(-50%, -0.5px);
+}
+
+button a::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 50%;
+  transition: all 0.5s;
+  background-color: white;
+}
+button a:hover::after {
+  transform: scalex(2.2) scaley(2.1);
+  opacity: 0;
+}
+
+.video {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+iframe {
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+iframe:hover{
+  border: 3px solid black;
+}
+
+/* <!-*********************** Seção Sobre Footer **********************-!>*/
+
+footer {
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(197, 222, 234, 1) 0%,
+    rgba(138, 187, 215, 1) 44%,
+    rgba(6, 109, 171, 1) 100%
+  );
+
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.footer--animation {
+  animation: moveUp 1s ease-out;
+}

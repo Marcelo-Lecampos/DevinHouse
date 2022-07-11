@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="./imagens/flaticon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Startup TecEvents</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Inicio da Seção Header -->
+      <header>
+        <nav >
+          <ul class="nav__brand">
+            <li><a href="#"><i class="fa-brands fa-facebook-square giro"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram giro"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin giro"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-pinterest-p giro"></i></a></li>
+          </ul>
+          <ul class="nav__sign">
+            <li><a href=""><i class="fa-brands fa-hire-a-helper"></i> Help</a></li>
+            <li><a href=""><i class="fa-solid fa-person-rays"></i> For Artists</a></li>
+            <li><a href=""><i class="fa-regular fa-keyboard"></i> Sign  Up</a></li>
+           </ul>
+
+        </nav>
+        
+      </header>
+       <!-- Fim da Seção Header -->
+
+  
+      <main>
+       
+        <section class="principal">
+          <div class="msg">
+            <h1>Eventos Tech</h1>
+          </div>
+          <div>
+            <img src="./imagens/imagem3.jpg" alt="logo" />
+          </div>
+        </section>
+      <section class="lista-eventos">
+        <h2>Se inscreva para receber informações sobre os próximos eventos</h2>
+        <div class="img__containers"><img src="./imagens/imagem1.jpg" alt="" srcset=""></div>
+        <div class="img__containers"><img src="./imagens/imagem2.jpg" alt="" srcset=""></div>
+        <div class="img__containers"><img src="./imagens/imagem4.jpg" alt="" srcset=""></div>
+        
+        <div class="formulario">
+          <form>
+          <div class='form-row'>
+          <label for='username'>Nome:</label>
+          <input type='text' id='username' name='username' />
+          </div>
+          <div class='form-row'>
+            <label for='email'>Email:</label>
+            <input type='email' id='email' name='email' />
+            </div> <br>
+           
+          <div class='form-row'>
+            <label for='descricao'>Descrição:</label> <br>
+            <textarea id='descricao' name='descricao' rows='3' cols='30'>Gostaria de participar pois...
+            </textarea>
+         
+          <br><br>
+          <button onclick="ConsoleLog()">Cadastrar</button>
+          </div>
+          </form>
+        </section> 
+      </main>
+
+      </section>
+      <footer>
+        <div class="links">
+          <a href="#">Contato |</a>
+          <a href="#">Privacidade |</a>
+          <a href="#">Termos de Uso |</a>
+          <a href="#">Política de Privacidade |</a>
+
+        </div>
+        <div class="feito"><em>🛠 Feito Por Marcelo Leão© no programa DEVinHouse 2022 🛠</em></div>
+        
+        
+      </footer>    
+     
+        
+  
+    </body>
+  <script>
+    //  Nome: xxxx - E-mail: xxxx - Descriçao: xxx
+    //Deve ser exibido alerta para o usuário que o formulário foi enviado com sucesso. (alert)
+    function ConsoleLog(){
+      var nome = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var descricao = document.getElementById('descricao').value;
+      console.log(`Nome: ${nome} - E-mail: ${email} - Descriçao: ${descricao}`);
+      alert("Formulário enviado com sucesso!");
+    }
+
+  </script>
+</html>

@@ -6,20 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio Semana 4</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="./script.js"></script>
 </head>
-<body>
+<body  onload="adicionarContas()">
     <h1>Banco DEVInhouse</h1>
   
     <form  method="post">
-        <select name="conta">
+        <select id="contas" name="conta">
             <option value="">Selecione uma conta</option>
-            <option value="1">Conta 1</option>
-            <option value="2">Conta 2</option>
-            <option value="3">Conta 3</option>
-            <option value="4">Conta 4</option>
-            <option value="5">Conta 5</option>
-            <option value="6">Conta 6</option>
-            <option value="7">Conta 7</option>
+           
         </select>
         <input type="text" name="valor" placeholder="Valor">
         <select name="operacao">
@@ -29,6 +24,14 @@
         </select>
         <button type="submit">Confirmar</button>
     </form>
+
+    <!-- 
+        Vamos criar as contas dos nossos cliente e adicionar opções ao select de contas:
+
+
+
+
+     -->
    
 </body>
 </html>

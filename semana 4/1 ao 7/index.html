@@ -8,14 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <!-- Vamos criar a estrutura inicial do projeto para desenvolvimento do sistema de conta bancária.
-
-    Crie um arquivo index.html com a estrutura básica do html adicionando o título do seu sistema (escolha o nome que quiser)
-    Crie um arquivo index.js e adicione ele o link dele no arquivo index.html
-    Caso queira estilizar e deixar sua página lindona crie um index.css e adicione o link dele no html
-    Realize o commit no github dessa parte
-
- -->
+    <h1>Banco DEVInhouse</h1>
+  
+    <form  method="post">
+        <select name="conta">
+            <option value="">Selecione uma conta</option>
+            <option value="1">Conta 1</option>
+            <option value="2">Conta 2</option>
+            <option value="3">Conta 3</option>
+            <option value="4">Conta 4</option>
+            <option value="5">Conta 5</option>
+            <option value="6">Conta 6</option>
+            <option value="7">Conta 7</option>
+        </select>
+        <input type="text" name="valor" placeholder="Valor">
+        <select name="operacao">
+            <option value="">Selecione uma operação</option>
+            <option value="sacar">Sacar</option>
+            <option value="depositar">Depositar</option>
+        </select>
+        <button type="submit">Confirmar</button>
+    </form>
+   
 </body>
 </html>

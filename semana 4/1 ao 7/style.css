@@ -3,22 +3,50 @@ html {
 }
 body {
   box-sizing: border-box;
+  background-color: #000;
 }
 * {
   margin: 0;
   padding: 0;
 }
 
-h1 {
+header {
   text-align: center;
-  font-size: 2em;
+}
+
+header h1 {
+  font-size: 10em;
   font-weight: bold;
-  color: #fff;
-  background-color: #000;
+  color: transparent;
   padding: 0.5em;
+  display: inline-block;
+  background: linear-gradient(76deg, rgba(74,218,68,1) 0%, rgba(121,9,120,1) 41%, rgba(118,117,14,1) 57%, rgba(126,110,23,1) 65%, rgba(255,0,164,1) 100%); 
+  background-clip: text;
+ 
 }
 
 form {
   width: 100%;
   text-align: center;
+  padding-top: 2rem;
+}
+
+form > * {
+  margin: 0.5rem;
+  font-size: 3rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+form > button{
+  background-color: rgb(17, 57, 0);
+  color: #fff;
+  
+}
+
+form > button:hover{
+  background-color: rgb(37, 115, 4);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }

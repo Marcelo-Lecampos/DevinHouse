@@ -1,4 +1,4 @@
-// 🧲Selectores DOM:
+//// 🧲 Selectores DOM:
 const body = document.querySelector("body");
 const formulario = document.querySelector("#form");
 const select = document.querySelector("#contas");
@@ -6,30 +6,35 @@ const inputValor = document.querySelector("#valor");
 const operacao = document.querySelector("#operacao");
 let msg = document.querySelector("#msg");
 
-// 🧾 Dados dos usuários:
+//// 🎫 Dados dos usuários:
 let arrayContas = [
   {
     id: 1,
     titular: "Josh",
     saldo: 3456,
+    senha: "123",
   },
   {
     id: 2,
     titular: "Teddy",
     saldo: 1324,
+    senha: "456",
   },
   {
     id: 3,
     titular: "Camilla",
     saldo: 5789,
+    senha: "789",
   },
 ];
 
-// 🏹 Adiciona o array de contas no select:
+//// 💽 Funções:
+
+// 🗜 Adiciona o array de contas no select:
 const adicionarContas = () => {
   arrayContas.forEach((conta) => {
     const option = document.createElement("option");
-    option.value = conta.titular;
+    option.value = conta.id;
     option.saldo = conta.saldo;
     option.innerHTML = conta.titular;
     select.appendChild(option);
@@ -37,8 +42,7 @@ const adicionarContas = () => {
 };
 body.onload = adicionarContas;
 
-// 💽 Funções:
-
+// 🗜 Valida os valores passados pelo usuário:
 let validarValor = (valor, operacaoEscolhida, i) => {
   if (valor <= 0) {
     console.log("Valor inválido");
@@ -65,27 +69,39 @@ let validarValor = (valor, operacaoEscolhida, i) => {
   }
 };
 
+// 🗜 Atualiza A operação e saldo do usuário e mostra no console:
+
 const atualizarForm = (formulario.onsubmit = (event) => {
   event.preventDefault();
   // ⚙ Values
   const valor = inputValor.value;
-  const optionTitular = select.value;
+  const optionValue = select.value;
   const operacaoEscolhida = operacao.value;
-  const findIndex = arrayContas.findIndex((conta) => conta.titular === optionTitular);
+  const passwordDigitado = document.querySelector("#password").value;
+  const findIndex = arrayContas.findIndex((conta) => conta.id == optionValue);
+  const passwordCheck = arrayContas[findIndex].senha;
 
-// ⚙ Validação
+  // ⚙ Validação elementos não preenchidos
 
-  if (valor === "" || findIndex || operacaoEscolhida === "") {
-    return msg.innerHTML = "Preencha todos os campos";
+  if (valor === "" || findIndex == -1 || operacaoEscolhida === "") {
+    return (msg.innerHTML = "Preencha todos os campos");
   }
-  if (valor !== "" || findIndex || operacaoEscolhida !== "") {
-     msg.innerHTML = "";
+  if (valor !== "" || findIndex != -1 || operacaoEscolhida !== "") {
+    msg.innerHTML = "";
   }
-  
-// ⚙ Atualização de saldo
+  if (passwordDigitado !== passwordCheck) {
+    return (msg.innerHTML = "Senha inválida");
+  }
+
+  // ⚙ Validação senha
+  // if (passwordDigitado !== arrayContas[findIndex].senha) {
+  //   return msg.innerHTML = "Senha inválida";
+  // }
+
+  // ⚙ Atualização de saldo
   arrayContas.forEach((conta, i) => {
     if (
-      conta.titular === optionTitular &&
+      conta.id == optionValue &&
       operacaoEscolhida === "depositar" &&
       validarValor(valor, operacaoEscolhida, i)
     ) {
@@ -98,7 +114,7 @@ const atualizarForm = (formulario.onsubmit = (event) => {
         }`
       );
     } else if (
-      conta.titular === optionTitular &&
+      conta.id == optionValue &&
       operacaoEscolhida === "sacar" &&
       validarValor(valor, operacaoEscolhida, i)
     ) {

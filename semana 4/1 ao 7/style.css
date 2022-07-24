@@ -20,31 +20,39 @@ header h1 {
   color: transparent;
   padding: 0.5em;
   display: inline-block;
-  background: linear-gradient(76deg, rgba(74,218,68,1) 0%, rgba(121,9,120,1) 41%, rgba(118,117,14,1) 57%, rgba(126,110,23,1) 65%, rgba(255,0,164,1) 100%); 
+  background: linear-gradient(
+    76deg,
+    rgba(74, 218, 68, 1) 0%,
+    rgba(121, 9, 120, 1) 41%,
+    rgba(118, 117, 14, 1) 57%,
+    rgba(126, 110, 23, 1) 65%,
+    rgba(255, 0, 164, 1) 100%
+  );
   background-clip: text;
- 
 }
 
 form {
   width: 100%;
-  text-align: center;
   padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-form > * {
+form * {
   margin: 0.5rem;
   font-size: 3rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
+  height: 5rem;
 }
 
-form > button{
+form > button {
   background-color: rgb(17, 57, 0);
   color: #fff;
-  
 }
 
-form > button:hover{
+form > button:hover {
   background-color: rgb(37, 115, 4);
   color: #fff;
   border-radius: 0.5rem;
@@ -57,5 +65,12 @@ form > button:hover{
   font-style: italic;
   text-align: center;
   padding-top: 1rem;
-}	
-  
+}
+
+#password {
+  transform: translate(0, -.5rem);
+}
+
+input {
+  height: 3.9rem;
+}

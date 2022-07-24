@@ -50,3 +50,12 @@ form > button:hover{
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
+
+#msg {
+  color: rgb(249, 10, 161);
+  font-size: 3.5rem;
+  font-style: italic;
+  text-align: center;
+  padding-top: 1rem;
+}	
+  

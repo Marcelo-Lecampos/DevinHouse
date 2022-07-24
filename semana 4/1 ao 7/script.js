@@ -38,18 +38,20 @@ body.onload = adicionarContas;
 
 // 💽 Funções:
 
-let validarValor = (valor, i) => {
+let validarValor = (valor,operacaoEscolhida, i) => {
   if (valor <= 0) {
     console.log("Valor inválido");
     return false;
-  } else if (valor > arrayContas[i].saldo) {
+  } else if (valor > arrayContas[i].saldo && operacaoEscolhida === "sacar") {
     console.log("Saldo insuficiente");
+    console.log(`Saldo disponível ${arrayContas[i].saldo} ${(arrayContas[i].saldo==1) ? "real" : "reais"}`);
     return false;
-  } else if (valor <= arrayContas[i].saldo) {
+  } else if (valor <= arrayContas[i].saldo || operacaoEscolhida === "depositar") {
     console.log("sucesso");
-    console.log(arrayContas[i].saldo);
+    console.log(`Saldo Anterior é de ${arrayContas[i].saldo} ${(arrayContas[i].saldo==1) ? "real" : "reais"}`);
     return true;
   }
+  
 };
 
 const atualizarForm = (formulario.onsubmit = (event) => {
@@ -64,18 +66,19 @@ const atualizarForm = (formulario.onsubmit = (event) => {
     if (
       conta.titular === optionTitular &&
       operacaoEscolhida === "depositar" &&
-      validarValor(valor, i)
+      validarValor(valor,operacaoEscolhida, i)
     ) {
       conta.saldo += parseFloat(valor);
-      return console.log(conta.saldo);
+      return console.log(`Depósito de ${valor} ${(valor==1) ? "real" : "reais"} efetuado com sucesso, o saldo atual é de ${conta.saldo} ${(conta.saldo==1) ? "real" : "reais"}`);
     } else if (
       conta.titular === optionTitular &&
       operacaoEscolhida === "sacar" &&
-      validarValor(valor, i)
+      validarValor(valor,operacaoEscolhida, i)
     ) {
       conta.saldo -= parseFloat(valor);
-      return console.log(conta.saldo);
+      return console.log(`Saque de R$ ${valor} ${(valor==1) ? "real" : "reais"} efetuado com sucesso, o saldo atual é de ${conta.saldo} ${(conta.saldo==1) ? "real" : "reais"}`);
     }
+    
   });
 });
 

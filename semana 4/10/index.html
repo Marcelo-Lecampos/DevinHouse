@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio Estações</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        box-sizing: border-box;
+        background-color: whitesmoke;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 5em;
+        font-weight: bold;
+        color: transparent;
+        padding: 0.5em;
+        display: inline-block;
+        background: linear-gradient(
+          76deg,
+          rgb(21, 172, 236) 0%,
+          rgb(7, 210, 85) 41%,
+          rgba(118, 117, 14, 1) 57%,
+          rgba(126, 110, 23, 1) 65%,
+          rgb(255, 255, 54) 100%
+        );
+        background-clip: text;
+      }
+
+      form {
+        width: 100%;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form * {
+        margin: 0.5rem;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        height: 5rem;
+      }
+      .tela{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .tela > p {
+        margin: 0.5rem;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        height: 5rem;
+      }
+      .tela > img{
+        width: 50rem;
+        border-radius: .5rem;
+        box-shadow: rgb(21, 21, 21) 0px 0px 0px 1px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Desafio Estações</h1></header>
+
+    <form method="post">
+      <input type="date" name="data" />
+    </form>
+    <div class="tela">
+      <p></p>
+      <img src="" alt="" />
+    </div>
+
+    <script>
+      // 🧲 Seletores DOM
+      const data = document.querySelector('input[name="data"]');
+      const p = document.querySelector("p");
+      const img = document.querySelector("img");
+
+      // 🎫 Array de dados:
+      const estacoes = [
+        {
+          estacao: "Verão",
+          src: "./imagens/verao.jpeg",
+          alt: "Verão",
+        },
+        {
+          estacao: "Outono",
+          src: "./imagens/outono.jpeg",
+          alt: "Outono",
+        },
+        {
+          estacao: "Inverno",
+          src: "./imagens/inverno.jpg",
+          alt: "Inverno",
+        },
+        {
+          estacao: "Primavera",
+          src: "./imagens/primavera.jpg",
+          alt: "Primavera",
+        },
+      ];
+
+      ////💽 Funções
+
+      //🗜 Função para verificar a estação
+      data.onchange = function (e) {
+        e.preventDefault();
+        // use apenas meses e dias, não use anos
+        const dataAtual = data.value;
+        const [ano, mes, dia] = dataAtual.split("-");
+        console.log("data atual: ", dataAtual);
+        console.log("Mes: ", mes);
+        console.log("Dia: ", dia);
+
+        //22/12 a 21/03 - Verão;
+        if ((mes == 12 && dia >= 22) || (mes <= 03 && dia <= 21)) {
+          p.innerHTML = estacoes[0].estacao;
+          img.src = estacoes[0].src;
+          img.alt = estacoes[0].alt;
+          return console.log("Verão");
+        }
+        // 22/03 a 21/06 - Outono;
+        if ((mes == 03 && dia >= 22) || (mes <= 06 && dia <= 21)) {
+          p.innerHTML = estacoes[1].estacao;
+          img.src = estacoes[1].src;
+          img.alt = estacoes[1].alt;
+          return console.log("Outono");
+        }
+
+        // 22/06 a 21/09 - Inverno;
+        if ((mes == 06 && dia >= 22) || (mes <= 09 && dia <= 21)) {
+          p.innerHTML = estacoes[2].estacao;
+          img.src = estacoes[2].src;
+          img.alt = estacoes[2].alt;
+          return console.log("Inverno");
+        }
+
+        // 22/09 a 21/12 - Primavera.
+        if ((mes == 09 && dia >= 22) || (mes <= 12 && dia <= 21)) {
+          p.innerHTML = estacoes[3].estacao;
+          img.src = estacoes[3].src;
+          img.alt = estacoes[3].alt;
+          return console.log("Primavera");
+        }
+        else{
+            p.innerHTML = "";
+            img.src = "";
+            img.alt = "";
+            
+        }
+      };
+    </script>
+  </body>
+</html>

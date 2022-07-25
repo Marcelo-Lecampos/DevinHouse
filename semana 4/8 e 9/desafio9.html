@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio 9</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        color: #000;
+      }
+      form{
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    form input{
+       
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+       
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Desafio 9</h1>
+  
+
+    <form action="desafio9.php" method="post">
+      <input type="number" name="idade" placeholder="Informe sua idade">
+      <button>Classificar</button>
+    </form>
+ 
+    <script>
+        const botao = document.querySelector('button');
+        const form = document.querySelector('form');
+        form.onsubmit = function(e){
+            e.preventDefault();
+            if(form.idade.value < 16){
+                alert('Jovens');
+            }else if(form.idade.value >= 16 && form.idade.value <= 64){
+                alert('Adultos');
+            }else{
+                alert('Idosos');
+            }
+        }
+    </script>
+  </body>
+</html>

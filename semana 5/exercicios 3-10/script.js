@@ -1,3 +1,7 @@
+// Exercício 6
+// Dentro da classe Pedido, crie outro método, chamado calcularTotal, que deve iterar sobre a listaProdutos e retornar o valor total do pedido.
+
+// Lembre-se de multiplicar a quantidade de cada produto pelo seu valor quando realizar a soma (quantidade e valor são propriedades da classe Produto!).
 class Produto {
   constructor(nome, preco, emEstoque, quantidade) {
     this.nome = nome;
@@ -6,11 +10,6 @@ class Produto {
     this.quantidade = quantidade;
   }
 }
-// Exercício 5
-
-// Dentro da classe Pedido, adicione um método adicionarProduto, que recebe como argumento um objeto do tipo Produto ( caso deseje, você pode realizar uma validação utilizando o operador instanceof).
-
-// Este método deve adicionar (push) à propriedade listaProdutos o produto passado como argumento.
 
 class Pedido {
   constructor(numeroPedido, nomeCliente, produto) {
@@ -24,11 +23,20 @@ class Pedido {
   adicionarProduto(produto) {
     this.listaProdutos.push(produto);
   }
+    calcularTotal() {
+    let total = 0;
+    this.listaProdutos.forEach((produto) => {
+      total += produto.preco * produto.quantidade;
+    });
+    return total;
+  }
 }
+const produtoQueijo = new Produto("Queijo", 10, true, 2);
+console.log(produtoQueijo);
+const pedidoOne= new Pedido(1, "João", produtoQueijo);
+console.log(pedidoOne)
+console.log(pedidoOne.calcularTotal())
 
 
-const teste= new Pedido(1, "João", "queijo");
 
-console.log(teste instanceof Pedido)
 
-console.log(teste); 
